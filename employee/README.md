@@ -1,12 +1,36 @@
-# employee-producer
+## employee
 
-Docker Steps:
+# producer url
+localhost:8080/employee
+
+# create docker network 
+docker network create consumer-producer
+
+# start the employee producer container on the newly created network.
+docker container run --network consumer-producer --name producer -p 8080:8080 -d employee-producer
+
+# start the employee consumer+ container on the newly created network.
+docker container run --network consumer-producer --name consumer -d employee-consumer
+
+
+## Other docker commands
+
+# build producer
 docker image build -t employee-producer .
+# run producer
 docker container run --name producer -p 8080:8080 -d employee-producer
 
-Logs
+# build consumer
+docker image build -t employee-consumer .
+# run consumer
+docker container run --name consumer -d employee-consumer
+# To stop
+docker container stop producer
+# To remove
+docker container rm producer
+# Logs
 docker container logs producer
-
-URL: localhost:8080/employee
+# list network
+docker network ls
 
 
