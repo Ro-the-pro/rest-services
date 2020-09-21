@@ -19,7 +19,6 @@ docker container run --network consumer-producer --name consumer -d employee-con
 docker image build -t employee-producer .
 # run producer
 docker container run --name producer -p 8080:8080 -d employee-producer
-
 # build consumer
 docker image build -t employee-consumer .
 # run consumer
