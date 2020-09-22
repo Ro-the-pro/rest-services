@@ -27,4 +27,12 @@ docker container logs producer
 ### list network
 docker network ls
 
+## docker-compose
+### start all services using docker-compose
+Go to consumer an run this: 
+docker-compose up
+1. If network employee-producer does not exist, it creates it. 
+2. Starts container using image employee-producer  
+3. Starts container using image employee-consumer
+
 
